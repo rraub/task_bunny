@@ -315,7 +315,7 @@ TaskBunny marks the job failed when:
 - `perform` times out.
 
 TaskBunny retries the job automatically if the job has failed.
-By default, it retries every 5 minutes up to 10 times.
+By default, it retries after at least 5 minutes, up to 10 times.
 
 If you want to change it, you can override the value on a job module.
 
