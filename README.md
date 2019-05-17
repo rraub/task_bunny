@@ -126,9 +126,6 @@ Existing messages in the queue will be lost so please be aware of this.
 % mix task_bunny.queue.reset
 ```
 
-You need to redefine a queue when you want to change the retry interval for a queue.
-
-
 #### Umbrella app
 
 When you use TaskBunny under an umbrella app and each apps needs a different queue definition, you can prefix config key like below so that it doesn't overwrite the other configuration.
