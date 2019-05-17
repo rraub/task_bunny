@@ -315,7 +315,7 @@ TaskBunny marks the job failed when:
 - `perform` times out.
 
 TaskBunny retries the job automatically if the job has failed.
-By default, it retries 10 times for every 5 minutes.
+By default, it retries every 5 minutes up to 10 times.
 
 If you want to change it, you can override the value on a job module.
 
@@ -331,8 +331,10 @@ defmodule FlakyJob do
 end
 ```
 
-In this example, it will retry 100 times for every 10 seconds.
-You can also change the retry_interval by the number of failures.
+In this example, it will retry after a delay of 10 seconds up to 100 times.
+
+You can also change the retry_interval by the number of failures, however the actual wait times may be longer
+due to how RabbitMQ only expires messages from the front of the retry queue.
 
 ```elixir
   def max_retry, do: 5
